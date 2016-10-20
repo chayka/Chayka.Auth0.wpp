@@ -26,14 +26,13 @@ class OauthController extends Controller{
 		try{
 
             $verifier = new JWTVerifier([
-                'valid_audiences' => ['https://chayka.io/api/oauth'],
-                'authorized_iss' => ['https://chayka.eu.auth0.com'],
-                'suported_algs' => ['RS256'],
-                'cache' => new FileSystemCacheHandler() // This parameter is optional. By default no cache is used to fetch the Json Web Keys.
+                'valid_audiences' => ['https://chayka.io/'],
+                'client_secret' => 'WPvLVZ07nNd7s1CmfZZFnD5aOEGsVOAQ'
             ]);
 
             $decoded = $verifier->verifyAndDecode($token);
-			$payload = ['decoded' => $decoded];
+
+            $payload = ['decoded' => $decoded];
 
 
 			JsonHelper::respond($payload);
