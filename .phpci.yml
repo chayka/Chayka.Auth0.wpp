@@ -1,0 +1,43 @@
+build_settings:
+#    clone_depth: 1 # depth of 1 is a shallow clone, remove this line to clone entire repo
+
+setup:
+    env:
+        PHPCI: "PHPCI"
+    composer:
+        action: "install"
+    shell:
+        # installing fresh database
+        - "php ${WP_CI_DIR}wp-content/tests-lib/includes/install.chayka.php"
+
+        # enabling Chayka.Core.wpp plugin
+        - "cd ${WP_CI_DIR}wp-content/plugins/Chayka.Core.wpp && git pull && composer update"
+        - "cd ${WP_CI_DIR} && wp --allow-root plugin activate Chayka.Core.wpp"
+
+        # copying fresh Chayka.Auth0.wpp plugin instance to WP
+        - "rm -rf ${WP_CI_DIR}wp-content/plugins/Chayka.Auth0.wpp"
+        - "mkdir ${WP_CI_DIR}wp-content/plugins/Chayka.Auth0.wpp"
+        - "cp -R ./* ${WP_CI_DIR}wp-content/plugins/Chayka.Auth0.wpp"
+        - "chown -R www-data:www-data ${WP_CI_DIR}wp-content/plugins/Chayka.Auth0.wpp"
+
+        # enabling Chayka.Auth0.wpp plugin
+        - "cd ${WP_CI_DIR} && wp --allow-root plugin activate Chayka.Auth0.wpp"
+
+        # creating test admin
+        - "cd ${WP_CI_DIR} && wp --allow-root user create ci-admin ci-admin@example.com --role=administrator --user_pass=${WP_CI_PASS}"
+
+test:
+    shell:
+        - "phpunit --tap"
+        - 'cd ./tests/casperjs/ && ./test.sh'
+
+complete:
+
+success:
+    package_build:
+        format: "zip"
+        directory: "${CI_RELEASE_DIR}"
+        filename: "%project.title%-%build.commit%"
+    shell:
+        - "chown www-data:www-data ${CI_RELEASE_DIR}*"
+        - "curl ${CI_RELEASE_HOOK_URL} > /dev/null"

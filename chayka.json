@@ -1,0 +1,29 @@
+{
+    "appType": "plugin",
+    "appName": "Chayka.Auth0",
+    "appDescription": "WP plugin that will implement API endpoint to enable Auth0 OAuth API authorization",
+    "appKeywords": "WordPress, Chayka",
+    "appVersion": "0.0.1",
+    "appAuthor": "Boris Mossounov",
+    "appAuthorEmail": "borix@tut.by",
+    "appAuthorUri": "https://anotherguru.me",
+    "appLicense": "Proprietary",
+    "phpNamespace": "Chayka\\Auth0",
+    "chaykaFrameworkDeps": [
+        "helpers",
+        "mvc",
+        "wp",
+        "core"
+    ],
+    "support": [
+        "UriProcessing",
+        "ConsolePages"
+    ],
+    "register": [
+        "registerActions",
+        "registerFilters",
+        "registerResources",
+        "registerRoutes",
+        "registerConsolePages"
+    ]
+}

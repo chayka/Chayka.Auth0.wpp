@@ -1,0 +1,26 @@
+{
+    "name": "chayka/auth0-wpp",
+    "description": "WP plugin that will implement API endpoint to enable Auth0 OAuth API authorization",
+    "minimum-stability": "dev",
+    "license": "Proprietary",
+    "version": "0.0.1",
+    "authors": [
+        {
+            "name": "Boris Mossounov",
+            "email": "borix@tut.by"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "app/helpers",
+            "app/models",
+            "Plugin.php"
+        ]
+    },
+    "require": {},
+    "requireDev": {},
+    "suggest": {
+        "chayka/wp": "dev-master",
+        "chayka/core-wpp": "dev-master"
+    }
+}

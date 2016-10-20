@@ -1,0 +1,1 @@
+WP plugin that will implement API endpoint to enable Auth0 OAuth API authorization

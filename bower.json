@@ -1,0 +1,22 @@
+{
+    "name": "Chayka.Auth0",
+    "description": "WP plugin that will implement API endpoint to enable Auth0 OAuth API authorization",
+    "version": "0.0.1",
+    "license": "Proprietary",
+    "authors": [
+        "Boris Mossounov <borix@tut.by>"
+    ],
+    "keywords": [
+        "WordPress",
+        "Chayka"
+    ],
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "res/lib",
+        "test",
+        "tests"
+    ],
+    "dependencies": {}
+}

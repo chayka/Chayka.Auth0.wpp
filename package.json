@@ -1,0 +1,34 @@
+{
+    "name": "Chayka.Auth0",
+    "description": "WP plugin that will implement API endpoint to enable Auth0 OAuth API authorization",
+    "version": "0.0.1",
+    "author": "Boris Mossounov <borix@tut.by>",
+    "dependencies": {},
+    "devDependencies": {
+        "gulp": "*",
+        "gulp-autoprefixer": "*",
+        "gulp-bump": "*",
+        "gulp-clean": "*",
+        "gulp-concat": "*",
+        "gulp-csslint": "*",
+        "gulp-cssnano": "*",
+        "gulp-git": "*",
+        "gulp-htmlmin": "*",
+        "gulp-imagemin": "*",
+        "gulp-jshint": "*",
+        "gulp-less": "*",
+        "gulp-plumber": "*",
+        "gulp-replace": "*",
+        "gulp-shell": "*",
+        "gulp-sourcemaps": "*",
+        "gulp-uglify": "*",
+        "imagemin-pngquant": "*",
+        "jshint": "*",
+        "run-sequence": "*",
+        "yargs": "*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:chayka/Chayka.Auth0.wpp.git"
+    }
+}

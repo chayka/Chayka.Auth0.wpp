@@ -1,0 +1,20 @@
+{
+	"ids": true,
+	"adjoining-classes": true,
+	"box-model": true,
+	"box-sizing": true,
+	"compatible-vendor-prefixes": true,
+	"floats": true,
+	"font-sizes": true,
+	"import": true,
+	"important": true,
+	"known-properties": true,
+	"overqualified-elements": true,
+	"qualified-headings": true,
+	"regex-selectors": true,
+	"unique-headings": true,
+	"universal-selector": true,
+	"unqualified-attributes": true,
+	"vendor-prefix": true,
+	"zero-units": true
+}
