@@ -42,6 +42,11 @@
     "installDependencies": false,
     "ideaDeploymentServer": "WP Plugins",
     "appClass": "Plugin",
-    "bitbucketUser": "username"
+    "bitbucketUser": "username",
+    "controllers": {
+      "Oauth": [
+        "token"
+      ]
+    }
   }
 }
