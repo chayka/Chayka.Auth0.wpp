@@ -45,7 +45,9 @@
     "bitbucketUser": "username",
     "controllers": {
       "Oauth": [
-        "token"
+        "token",
+        "redirect",
+        "resource"
       ]
     }
   }

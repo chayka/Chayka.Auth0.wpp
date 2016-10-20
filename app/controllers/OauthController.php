@@ -4,6 +4,7 @@ namespace Chayka\Auth0;
 
 use Auth0\SDK\Helpers\Cache\FileSystemCacheHandler;
 use Auth0\SDK\JWTVerifier;
+use Chayka\Helpers\LogHelper;
 use Chayka\WP\MVC\Controller;
 use Chayka\Helpers\InputHelper;
 use Chayka\WP\Helpers\JsonHelper;
@@ -39,5 +40,17 @@ class OauthController extends Controller{
 		}catch(\Exception $e){
 			JsonHelper::respondException($e);
 		}
+    }
+
+    public function redirectAction(){
+        $input = InputHelper::getParams();
+        LogHelper::dir($input, 'Redirect input');
+        JsonHelper::respond($input);
+    }
+
+    public function resourceAction(){
+        $input = InputHelper::getParams();
+        LogHelper::dir($input, 'Resource input');
+        JsonHelper::respond($input);
     }
 }
