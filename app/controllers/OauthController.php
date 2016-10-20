@@ -28,7 +28,7 @@ class OauthController extends Controller{
             $verifier = new JWTVerifier([
                 'valid_audiences' => ['https://chayka.io/api/oauth'],
                 'authorized_iss' => ['https://chayka.eu.auth0.com'],
-                'supported_algs' => ['RS256'],
+                'suported_algs' => ['RS256'],
                 'cache' => new FileSystemCacheHandler() // This parameter is optional. By default no cache is used to fetch the Json Web Keys.
             ]);
 
