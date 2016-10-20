@@ -28,7 +28,7 @@ class OauthController extends Controller{
             $verifier = new JWTVerifier([
                 'valid_audiences' => ['https://chayka.io/'],
                 'suported_algs' => ['HS256'],
-                'client_secret' => 'WPvLVZ07nNd7s1CmfZZFnD5aOEGsVOAQ'
+                'client_secret' => base64_encode('WPvLVZ07nNd7s1CmfZZFnD5aOEGsVOAQ')
             ]);
 
             $decoded = $verifier->verifyAndDecode($token);
