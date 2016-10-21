@@ -42,8 +42,7 @@ class JwtHelper{
      */
     protected static function getTokenFromHeaders(){
         $token = '';
-        $headers = getallheaders();
-        if(isset($headers['authorization']) && preg_match('/^\s*Bearer\s+(.*)$/i', $headers['authorization'], $m)){
+        if(isset($_SERVER['HTTP_AUTHORIZATION']) && preg_match('/^\s*Bearer\s+(.*)$/i', $_SERVER['HTTP_AUTHORIZATION'], $m)){
             $token = $m[1];
         }
         return $token;
