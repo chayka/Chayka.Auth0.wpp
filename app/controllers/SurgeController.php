@@ -2,7 +2,6 @@
 
 namespace Chayka\Auth0;
 
-use Chayka\Helpers\LogHelper;
 use Chayka\Helpers\Util;
 use Chayka\WP\MVC\Controller;
 use Chayka\Helpers\InputHelper;
