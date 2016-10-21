@@ -60,7 +60,6 @@ class JwtHelper{
 
                 $verifier = new JWTVerifier([
                     'valid_audiences' => [self::AUTH0_AUDIENCE],
-//                    'suported_algs' => ['HS256'],
                     'client_secret' => base64_encode(self::AUTH0_CLIENT_SECRET)
                 ]);
 
