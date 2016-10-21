@@ -30,7 +30,7 @@ class Plugin extends WP\Plugin{
     public static function init(){
         if(!static::$instance && self::areRequiredClassesAvailable()){
             static::$instance = $app = new self(__FILE__, [
-                'oauth',
+                'surge',
                 /* chayka: init-controllers */
             ]);
 	        $app->dbUpdate([
