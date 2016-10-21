@@ -89,7 +89,7 @@ class JwtHelper{
      * @return string[]
      */
     public static function getScopes(){
-        return self::$jwt && isset(self::$jwt['scope']) ? explode(' ', self::$jwt['scope']) : [];
+        return self::$jwt && isset(self::$jwt->scope) ? explode(' ', self::$jwt->scope) : [];
     }
 
     /**
@@ -98,6 +98,6 @@ class JwtHelper{
      * @return string
      */
     public static function getClientId(){
-        return self::$jwt && isset(self::$jwt['sub']) ? preg_replace('/@clients$/', '', self::$jwt['sub']) : '';
+        return self::$jwt && isset(self::$jwt->sub) ? preg_replace('/@clients$/', '', self::$jwt->sub) : '';
     }
 }
