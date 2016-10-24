@@ -54,19 +54,22 @@ class JwtHelper{
      * @return bool
      */
     public static function validate(){
-        $token = self::getTokenFromHeaders();
-        if(!self::$jwt && $token){
-            try{
+        if(!self::$jwt){
+            $token = self::getTokenFromHeaders();
+            if($token){
+                try{
+                    $verifier = new JWTVerifier([
+                        'valid_audiences' => [self::AUTH0_AUDIENCE],
+                        'client_secret' => base64_encode(self::AUTH0_CLIENT_SECRET)
+                    ]);
 
-                $verifier = new JWTVerifier([
-                    'valid_audiences' => [self::AUTH0_AUDIENCE],
-                    'client_secret' => base64_encode(self::AUTH0_CLIENT_SECRET)
-                ]);
+                    self::$jwt = $verifier->verifyAndDecode($token);
 
-                self::$jwt = $verifier->verifyAndDecode($token);
-
-            }catch(\Exception $e){
-                self::$message = $e->getMessage();
+                }catch(\Exception $e){
+                    self::$message = $e->getMessage();
+                }
+            }else{
+                self::$message = 'No OAuth token detected';
             }
         }
 
