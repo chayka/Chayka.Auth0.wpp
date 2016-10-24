@@ -16,6 +16,11 @@ class SurgeController extends Controller{
         InputHelper::captureInput();
     }
 
+    /**
+     * Generate temp access link.
+     * Since in real world implementation we'll have clientId <-> tempAccessLink relation,
+     * our temp link consists of reversed client id for simplicity.
+     */
     public function tempLinkAction(){
         /**
          * Check JWT authentication
@@ -33,6 +38,10 @@ class SurgeController extends Controller{
         JsonHelper::respondError('Need "temp-access-link" permission to acquire temporary access link');
     }
 
+    /**
+     * Endpoint that is being accessed using generated temp link.
+     * In this demo restoring client id by reversing pass.
+     */
     public function tempAccessAction(){
         $pass = InputHelper::checkParam('pass')->required()->getValue();
         InputHelper::validateInput(true);
